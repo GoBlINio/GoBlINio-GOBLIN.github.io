@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор зоны - Праздник в каждый дом</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #ff6b6b;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #ff4757;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .btn:hover {
+            background: #ff4757;
+            transform: translateY(-2px);
+        }
+        /* Шапка сайта */
+header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+    }
+}
+        .zone-selection {
+            padding: 80px 0;
+        }
+        
+        .location-header {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+        
+        .location-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 30px;
+        }
+        
+        .location-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .location-title h2 {
+            margin-bottom: 10px;
+        }
+        
+        .location-meta {
+            display: flex;
+            margin-bottom: 15px;
+            color: #777;
+        }
+        
+        .location-meta span {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .location-meta i {
+            margin-right: 5px;
+        }
+        
+        .zones-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .zone-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .zone-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .zone-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .zone-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .zone-card:hover .zone-image img {
+            transform: scale(1.05);
+        }
+        
+        .zone-info {
+            padding: 20px;
+        }
+        
+        .zone-features {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        
+        .feature-tag {
+            background: #f3f3f3;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .zone-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin: 15px 0;
+        }
+        
+        .zone-capacity {
+            color: #777;
+            margin-bottom: 15px;
+        }
+        
+        .services-section {
+            margin: 50px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card h4 {
+            margin-bottom: 10px;
+            color: #ff6b6b;
+        }
+        
+        .service-price {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .service-add {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .service-add input {
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .location-header {
+                flex-direction: column;
+            }
+            
+            .location-image {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="img/holiday.jpg" alt="Праздник в каждый дом">
+                <span class="logo-text">Праздник в каждый дом</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#promotions">Акции</a></li>
+                    <li><a href="index.html#search">Поиск</a></li>
+                    <li><a href="#booking">Управление бронированием</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основное содержимое страницы -->
+    <main class="zone-selection">
+        <div class="container">
+            <!-- Заголовок локации -->
+            <div class="location-header">
+                <div class="location-image">
+                    <img src="/img/site-3-logo.jpg" alt="Творческая студия «Маленький гений»">
+                </div>
+                <div class="location-title">
+                    <h2>Творческая студия «Маленький гений»</h2>
+                    <div class="location-meta">
+                        <span><i>📍</i> Москва, ул. Творческая, 3</span>
+                        <span><i>⭐</i> 4.7 (98 отзывов)</span>
+                        <span><i>👨‍👩‍👧‍👦</i> До 15 гостей</span>
+                    </div>
+                    <p>Уникальное пространство для развития творческих способностей детей. Профессиональные педагоги, качественные материалы и уютная атмосфера для вдохновения.</p>
+                </div>
+            </div>
+            
+            <!-- Выбор зоны -->
+            <h3>Доступные зоны для бронирования</h3>
+            <div class="zones-container">
+                <!-- Зона 1 -->
+                <div class="zone-card">
+                    <div class="zone-image">
+                        <img src="/img/art-studio.jpg" alt="Арт-студия">
+                    </div>
+                    <div class="zone-info">
+                        <h4>Арт-студия</h4>
+                        <div class="zone-features">
+                            <span class="feature-tag">Мольберты</span>
+                            <span class="feature-tag">Краски и холсты</span>
+                            <span class="feature-tag">Гончарный круг</span>
+                        </div>
+                        <div class="zone-capacity">Вместимость: до 15 человек</div>
+                        <div class="zone-price">2 000 ₽/час</div>
+                        <a href="booking.html?zone=7" class="btn">Выбрать</a>
+                    </div>
+                </div>
+                
+                <!-- Зона 2 -->
+                <div class="zone-card">
+                    <div class="zone-image">
+                        <img src="/img/ymnie.jpg" alt="Лаборатория науки">
+                    </div>
+                    <div class="zone-info">
+                        <h4>Лаборатория науки</h4>
+                        <div class="zone-features">
+                            <span class="feature-tag">Микроскопы</span>
+                            <span class="feature-tag">Наборы для опытов</span>
+                            <span class="feature-tag">Интерактивные панели</span>
+                        </div>
+                        <div class="zone-capacity">Вместимость: до 12 человек</div>
+                        <div class="zone-price">2 300 ₽/час</div>
+                        <a href="booking.html?zone=8" class="btn">Выбрать</a>
+                    </div>
+                </div>
+                
+                <!-- Зона 3 -->
+                <div class="zone-card">
+                    <div class="zone-image">
+                        <img src="/img/teatr.jpeg" alt="Театральная мастерская">
+                    </div>
+                    <div class="zone-info">
+                        <h4>Театральная мастерская</h4>
+                        <div class="zone-features">
+                            <span class="feature-tag">Сцена</span>
+                            <span class="feature-tag">Костюмы</span>
+                            <span class="feature-tag">Грим</span>
+                        </div>
+                        <div class="zone-capacity">Вместимость: до 10 человек</div>
+                        <div class="zone-price">1 800 ₽/час</div>
+                        <a href="booking.html?zone=9" class="btn">Выбрать</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>О компании</h3>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Команда</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="#">Аренда площадок</a></li>
+                        <li><a href="#">Аниматоры</a></li>
+                        <li><a href="#">Питание</a></li>
+                        <li><a href="#">Декор</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Помощь</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Возврат</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <p><i>📞</i> 8 (800) 111-20-20</p>
+                        <p><i>✉️</i> info@prazdnik.ru</p>
+                        <p><i>🏠</i> Москва, ул. Праздничная, 15</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 "Праздник в каждый дом". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
