@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спасибо!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+        
+        .youtube-container {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .youtube-iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* 16:9 соотношение */
+            min-height: 100vh;
+            min-width: 177.77vh; /* 16:9 соотношение */
+            transform: translate(-50%, -50%);
+        }
+        
+        .thank-you {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 10vw;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <!-- YouTube видео в качестве фона -->
+    <div class="youtube-container">
+        <iframe 
+            class="youtube-iframe"
+            src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID&controls=0&showinfo=0&rel=0" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+        </iframe>
+    </div>
+    
+    <div class="thank-you">СПАСИБО</div>
+
+    <script>
+        // Замените VIDEO_ID на ID вашего YouTube-видео
+        function setupYouTubeVideo(videoId) {
+            const iframe = document.querySelector('.youtube-iframe');
+            iframe.src = `https://www.youtube.com/embed/${N1St695IRmQvideoId}?autoplay=1&mute=1&loop=1&playlist=${N1St695IRmQ}&controls=0&showinfo=0&rel=0`;
+        }
+        
+        // Вставьте ID вашего YouTube-видео здесь
+        // Например, для ссылки https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        // ID будет dQw4w9WgXcQ
+        document.addEventListener('DOMContentLoaded', function() {
+            setupYouTubeVideo('N1St695IRmQ'); // Замените на ваш VIDEO_ID
+        });
+    </script>
+</body>
+</html>
